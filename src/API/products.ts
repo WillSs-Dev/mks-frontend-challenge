@@ -1,9 +1,11 @@
-import IProduct from "../interfaces/products";
+import IProduct from "../interfaces/product";
 
-const baseUrl = 'https://mks-challenge-api-frontend.herokuapp.com/api/v1/products';
+const baseUrl = 'https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=10&sortBy=name&orderBy=DESC';
 
-export const getProducts = async () => {
+const getProducts = async () => {
   const response = await fetch(baseUrl);
   const data = await response.json();
   return data.products as IProduct[];
 }
+
+export default getProducts;
