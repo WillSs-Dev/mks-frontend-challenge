@@ -20,7 +20,13 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "warn",
+    "prettier/prettier": [
+      "warn",
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "@typescript-eslint/no-unused-vars": "error",
     "func-style": [
       "error",
