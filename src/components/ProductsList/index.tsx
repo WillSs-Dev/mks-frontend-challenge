@@ -1,6 +1,7 @@
+import shoppingBag from '../../images/shopping-bag.svg';
 import IProduct from '../../interfaces/product';
 
-import { Container } from './style';
+import { Container, Card } from './style';
 
 interface ProductsListProps {
   products: IProduct[];
@@ -13,11 +14,23 @@ const ProductsList = (props: ProductsListProps) => {
     <Container>
       {products.length !== 0 &&
         products.map((product) => (
-          <div key={product.id}>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-          </div>
+          <Card key={product.id}>
+            <img src={product.photo} alt={product.name} />
+            <div>
+              <span>{product.name}</span>
+              <div>
+                <span>{`R$${product.price}`}</span>
+              </div>
+            </div>
+            <p>{`${product.description.substring(0, 100)}...`}</p>
+            <button>
+              <img
+                src={shoppingBag}
+                alt={`Adicionar ${product.name} ao carrinho`}
+              />
+              COMPRAR
+            </button>
+          </Card>
         ))}
     </Container>
   );

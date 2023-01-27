@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.footer`
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  position: relative;
   width: 100%;
   height: 34px;
   background: #eeeeee;
@@ -12,7 +10,6 @@ const Container = styled.footer`
   align-items: center;
 
   @media (max-width: 1024px) {
-    position: relative;
     height: 50px;
   }
 
