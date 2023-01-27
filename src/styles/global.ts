@@ -10,6 +10,11 @@ const GlobalStyle = createGlobalStyle`
     }
   body {
     background: #E5E5E5;
+    min-height: 100vH;
+
+    > #root {
+      min-height: 100vH;
+    }
   }
 `;
 
