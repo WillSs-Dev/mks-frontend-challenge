@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { IAddToCartButtonProps } from '../../interfaces/props';
+import { IAddToCartButtonProps, ICardProps } from '../../interfaces/props';
 
 const Container = styled.main`
   min-height: 50vh;
@@ -18,7 +18,7 @@ const Container = styled.main`
   }
 `;
 
-const Card = styled.div`
+const Card = styled.div<ICardProps>`
   background: #fff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
   height: 285px;

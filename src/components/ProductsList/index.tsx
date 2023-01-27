@@ -10,7 +10,7 @@ const ProductsList = (props: IProductsListProps) => {
     <Container>
       {products.length !== 0 &&
         products.map((product) => (
-          <Card key={product.id}>
+          <Card key={product.id} data-testid='product-card'>
             <img src={product.photo} alt={product.name} />
             <div>
               <span>{product.name}</span>
@@ -19,7 +19,7 @@ const ProductsList = (props: IProductsListProps) => {
               </div>
             </div>
             <p>{`${product.description.substring(0, 100)}...`}</p>
-            <AddToCartButton dataTestId='add-to-cart'>
+            <AddToCartButton data-testid='add-to-cart'>
               <img
                 src={shoppingBag}
                 alt={`Adicionar ${product.name} ao carrinho`}

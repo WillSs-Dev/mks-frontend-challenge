@@ -6,13 +6,17 @@ export interface IProductsListProps {
 
 export interface ICartSidebarProps {
   show: boolean;
-  dataTestId: string;
+  'data-testid': string;
 };
 
 export interface ICartButtonProps {
-  dataTestId: string;
+  'data-testid': string;
 }
 
 export interface IAddToCartButtonProps {
-  dataTestId: string;
+  'data-testid': string;
+}
+
+export interface ICardProps {
+  'data-testid': string;
 }
