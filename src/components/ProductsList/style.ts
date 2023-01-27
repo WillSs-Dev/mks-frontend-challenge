@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { IAddToCartButtonProps } from '../../interfaces/props';
+
 const Container = styled.main`
   min-height: 50vh;
   margin: 4.5% 0;
@@ -73,7 +75,9 @@ const Card = styled.div`
     color: #2c2c2c;
   }
 
-  > button {
+`;
+
+const AddToCartButton = styled.button<IAddToCartButtonProps>`
     width: 100%;
     background: #0f52ba;
     border-radius: 0px 0px 8px 8px;
@@ -92,7 +96,6 @@ const Card = styled.div`
       opacity: 0.9;
       scale: 1.01;
     }
-  }
-`;
+  `;
 
-export { Container, Card };
+export { Container, Card, AddToCartButton };

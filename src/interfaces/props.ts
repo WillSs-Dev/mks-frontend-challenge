@@ -6,8 +6,13 @@ export interface IProductsListProps {
 
 export interface ICartSidebarProps {
   show: boolean;
+  dataTestId: string;
 };
 
 export interface ICartButtonProps {
+  dataTestId: string;
+}
+
+export interface IAddToCartButtonProps {
   dataTestId: string;
 }

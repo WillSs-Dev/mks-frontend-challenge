@@ -10,8 +10,8 @@ const Header = () => {
         <span>MKS</span>
         <span>Sistemas</span>
       </HomeIcon>
-      <CartButton>
-        <img src={cartIcon} width='18px' />
+      <CartButton dataTestId='cart-button'>
+        <img src={cartIcon}/>
         <span>0</span>
       </CartButton>  
     </HeaderContainer>

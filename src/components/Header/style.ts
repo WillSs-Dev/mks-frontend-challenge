@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { ICartButtonProps } from '../../interfaces/props';
+
 const HeaderContainer = styled.div`
   width: 100%;
   height: 101px;
@@ -33,7 +35,7 @@ const HomeIcon = styled.div`
   }
 `;
 
-const CartButton = styled.button`
+const CartButton = styled.button<ICartButtonProps>`
   display: flex;
   width: 90px;
   height: 45px;
@@ -47,6 +49,10 @@ const CartButton = styled.button`
 
   :hover {
     scale: 1.01;
+  }
+
+  > img {
+    width: 18px;
   }
 
   > span {

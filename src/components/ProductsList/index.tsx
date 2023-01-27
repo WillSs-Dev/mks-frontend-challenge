@@ -1,9 +1,7 @@
 import shoppingBag from '../../images/shopping-bag.svg';
 import { IProductsListProps } from '../../interfaces/props';
 
-import { Container, Card } from './style';
-
-
+import { Container, Card, AddToCartButton } from './style';
 
 const ProductsList = (props: IProductsListProps) => {
   const { products } = props;
@@ -21,13 +19,13 @@ const ProductsList = (props: IProductsListProps) => {
               </div>
             </div>
             <p>{`${product.description.substring(0, 100)}...`}</p>
-            <button>
+            <AddToCartButton dataTestId='add-to-cart'>
               <img
                 src={shoppingBag}
                 alt={`Adicionar ${product.name} ao carrinho`}
               />
               COMPRAR
-            </button>
+            </AddToCartButton>
           </Card>
         ))}
     </Container>

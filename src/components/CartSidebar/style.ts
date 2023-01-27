@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { CartSidebarProps } from '../../interfaces/props';
+import { ICartSidebarProps } from '../../interfaces/props';
 
-export const Container = styled.aside<CartSidebarProps>`
+export const Container = styled.aside<ICartSidebarProps>`
   position: absolute;
   z-index: 99;
   top: 0;

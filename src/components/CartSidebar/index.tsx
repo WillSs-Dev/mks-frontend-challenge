@@ -2,7 +2,7 @@ import { Container } from "./style";
 
 const CartSidebar = () => {
   return (
-    <Container show={true}>
+    <Container show={false} dataTestId='cart-sidebar'>
       Cart Sidebar
     </Container>
   )
