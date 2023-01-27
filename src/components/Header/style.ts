@@ -18,17 +18,18 @@ const HomeIcon = styled.div`
   margin-left: 88px;
   justify-content: space-around;
   /* border: 1px solid #ffffff; */
-  > span {
+  > :first-child {
     font-style: normal;
     font-weight: 600;
     font-size: 40px;
-    margin-bottom: 8px;
   }
-  &:nth-child(1) {
+  > :last-child {
+    position: relative;
     font-style: normal;
     font-weight: 300;
+    left: 10px;
+    top: 7px;
     font-size: 20px;
-    line-height: 19px;
   }
 `;
 

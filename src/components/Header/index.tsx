@@ -8,7 +8,7 @@ const Header = () => {
     <HeaderContainer>
       <HomeIcon>
         <span>MKS</span>
-        Sistemas
+        <span>Sistemas</span>
       </HomeIcon>
       <CartButton>
         <img src={cartIcon} width='18px' />
