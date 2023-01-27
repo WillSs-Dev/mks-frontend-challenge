@@ -29,6 +29,12 @@ const Card = styled.div`
 
   > img {
     max-height: 138px;
+    transition: 0.2s;
+
+    :hover { 
+      opacity: 0.9;
+      scale: 1.01;
+    }
   }
 
   > div {
@@ -56,6 +62,7 @@ const Card = styled.div`
       border-radius: 5px;
       width: max-content;
       font-weight: 700;
+      font-size: 15px;
     }
   }
 
@@ -79,6 +86,12 @@ const Card = styled.div`
     color: #fff;
     gap: 10px;
     cursor: pointer;
+    transition: 0.2s;
+
+    :hover { 
+      opacity: 0.9;
+      scale: 1.01;
+    }
   }
 `;
 

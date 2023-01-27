@@ -12,7 +12,7 @@ const HeaderContainer = styled.div`
 
 const HomeIcon = styled.div`
   display: flex;
-  width: 10vW;
+  width: 10vw;
   height: 80%;
   align-items: center;
   margin-left: 88px;
@@ -44,6 +44,11 @@ const CartButton = styled.button`
   background: #ffffff;
   border: none;
   cursor: pointer;
+
+  :hover {
+    scale: 1.01;
+  }
+
   > span {
     font-style: normal;
     font-weight: 700;
