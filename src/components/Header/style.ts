@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
-  position: absolute;
   width: 100%;
   height: 101px;
-  left: 0px;
-  top: 0px;
   color: #ffffff;
   background: #0f52ba;
   display: flex;
@@ -44,6 +41,8 @@ const CartButton = styled.button`
   align-items: center;
   justify-content: space-evenly;
   background: #ffffff;
+  border: none;
+  cursor: pointer;
   > span {
     font-style: normal;
     font-weight: 700;
