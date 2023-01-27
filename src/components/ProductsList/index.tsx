@@ -1,13 +1,11 @@
 import shoppingBag from '../../images/shopping-bag.svg';
-import IProduct from '../../interfaces/product';
+import { IProductsListProps } from '../../interfaces/props';
 
 import { Container, Card } from './style';
 
-interface ProductsListProps {
-  products: IProduct[];
-}
 
-const ProductsList = (props: ProductsListProps) => {
+
+const ProductsList = (props: IProductsListProps) => {
   const { products } = props;
 
   return (
