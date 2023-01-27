@@ -10,7 +10,7 @@ const Header = () => {
         <span>MKS</span>
         <span>Sistemas</span>
       </HomeIcon>
-      <CartButton dataTestId='cart-button'>
+      <CartButton data-testid='cart-button'>
         <img src={cartIcon}/>
         <span>0</span>
       </CartButton>  
