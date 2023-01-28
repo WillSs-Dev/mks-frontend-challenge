@@ -56,7 +56,7 @@ describe('Assertions on initial page load', () => {
     const cartSidebar = await waitFor(() => screen.getByTestId('cart-sidebar'));
 
     userEvent.click(cartButton);
-    await waitFor(() => expect(cartSidebar).toHaveContent('Nada no carrinho!'));
+    await waitFor(() => expect(cartSidebar).toHaveTextContent('Nada no carrinho!'));
 
     const checkoutTotalValue = await waitFor(() => screen.getByTestId('checkout-total-value'));
     expect(checkoutTotalValue).toHaveTextContent('0');
