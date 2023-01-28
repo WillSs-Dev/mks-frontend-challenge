@@ -36,6 +36,7 @@ const Card = styled.div<ICardProps>`
   > img {
     max-height: 138px;
     transition: 0.2s;
+    cursor: pointer;
 
     :hover { 
       opacity: 0.9;
