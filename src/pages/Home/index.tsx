@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import getProducts from '../../API/products';
+import { getProducts } from '../../API/products';
 import CartSidebar from '../../components/CartSidebar';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
