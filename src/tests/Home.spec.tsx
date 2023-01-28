@@ -36,18 +36,18 @@ describe('Assertions on initial page load', () => {
   it('The cart sidebar opens and closes', async () => {
     renderWithState(App);
 
-    const cartButton = await waitFor(() => screen.getByTestId('cart-button'));
-    const cartSidebar = await waitFor(() => screen.getByTestId('cart-sidebar'));
+    const cartButton = screen.getByTestId('cart-button');
+    const cartSidebar = screen.getByTestId('cart-sidebar');
 
     // OPEN
     userEvent.click(cartButton);
-    await waitFor(() => expect(cartSidebar).toHaveStyle('transform: translateX(100%)'));
+    await waitFor(() => expect(cartSidebar).toHaveStyle('transform: translate(0)'));
 
     const closeButton = await waitFor(() => screen.getByTestId('close-button'));
 
     // CLOSE
     userEvent.click(closeButton);
-    await waitFor(() => expect(cartSidebar).toHaveStyle('transform: translateX(0)'));
+    await waitFor(() => expect(cartSidebar).toHaveStyle('transform: translate(100%)'));
   });
 
   it('Renders the app, inittialy with no products on the cart', async () => {
