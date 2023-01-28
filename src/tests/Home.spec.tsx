@@ -40,13 +40,13 @@ describe('Assertions on initial page load', () => {
 
     // OPEN
     userEvent.click(cartButton);
-    await waitFor(() => expect(cartSidebar).toHaveStyle('min-height: 100%'));
+    await waitFor(() => expect(cartSidebar).toHaveStyle('transform: translateX(100%)'));
 
     const closeButton = await waitFor(() => screen.getByTestId('close-button'));
 
     // CLOSE
     userEvent.click(closeButton);
-    await waitFor(() => expect(cartSidebar).toHaveStyle('min-height: 0'));
+    await waitFor(() => expect(cartSidebar).toHaveStyle('transform: translateX(0)'));
   });
 
   it('Renders the app, inittialy with no products on the cart', async () => {
