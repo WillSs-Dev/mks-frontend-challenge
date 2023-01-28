@@ -60,6 +60,6 @@ describe('Assertions on initial page load', () => {
     await waitFor(() => expect(cartSidebar).toHaveTextContent('Nada no carrinho!'));
 
     const checkoutTotalValue = await waitFor(() => screen.getByTestId('checkout-total-value'));
-    expect(checkoutTotalValue).toHaveTextContent('0');
+    expect(checkoutTotalValue).toHaveTextContent('R$ 0');
   });
 });
