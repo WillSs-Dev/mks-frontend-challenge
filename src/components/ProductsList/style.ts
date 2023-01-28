@@ -13,8 +13,12 @@ const Container = styled.main`
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: 680px) {
+  @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 
@@ -52,7 +56,6 @@ const Card = styled.div<ICardProps>`
 
     > span {
       font-weight: 400;
-      font-style: normal;
       font-size: 16px;
       color: #2c2c2c;
     }
