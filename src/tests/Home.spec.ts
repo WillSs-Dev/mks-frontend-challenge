@@ -40,13 +40,13 @@ describe('Assertions on initial page load', () => {
     const cartSidebar = screen.getByTestId('cart-sidebar');
 
     // OPEN
-    userEvent.click(cartButton);
+    await userEvent.click(cartButton);
     await waitFor(() => expect(cartSidebar).toHaveStyle('transform: translate(0)'));
 
     const closeButton = await waitFor(() => screen.getByTestId('close-button'));
 
     // CLOSE
-    userEvent.click(closeButton);
+    await userEvent.click(closeButton);
     await waitFor(() => expect(cartSidebar).toHaveStyle('transform: translate(100%)'));
   });
 
@@ -56,7 +56,7 @@ describe('Assertions on initial page load', () => {
     const cartButton = await waitFor(() => screen.getByTestId('cart-button'));
     const cartSidebar = await waitFor(() => screen.getByTestId('cart-sidebar'));
 
-    userEvent.click(cartButton);
+    await userEvent.click(cartButton);
     await waitFor(() => expect(cartSidebar).toHaveTextContent('Nada no carrinho!'));
 
     const checkoutTotalValue = await waitFor(() => screen.getByTestId('checkout-total-value'));

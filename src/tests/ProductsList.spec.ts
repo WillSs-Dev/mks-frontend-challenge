@@ -10,7 +10,7 @@ import { mockProducts } from './mocks/data';
 
 let getProductsSpy: jest.SpyInstance;
 
-describe('Assertions on initial page load', () => {
+describe('Products card list interaction', () => {
   beforeEach(() => {
     getProductsSpy = jest.spyOn(productsAPI, 'getProducts');
     getProductsSpy.mockResolvedValue(mockProducts);
@@ -24,24 +24,35 @@ describe('Assertions on initial page load', () => {
   it('Adds products to the cart and remove them', async () => {
     renderWithState(App);
 
-    const cartButton = await waitFor(() => screen.getByTestId('cart-button'));
     const addToCartButtons = await waitFor(() =>
       screen.getAllByTestId('add-to-cart')
     );
 
-    userEvent.click(addToCartButtons[0]);
-    userEvent.click(addToCartButtons[1]);
-    userEvent.click(cartButton);
+    await userEvent.click(addToCartButtons[0]);
+    await userEvent.click(addToCartButtons[1]);
 
+    const cartButton = await waitFor(() => screen.getByTestId('cart-button'));
     const cartItems = await waitFor(() => screen.getAllByTestId('cart-item'));
+
+    await userEvent.click(cartButton);
+
+    const totalValue = await waitFor(() =>
+      screen.getByTestId('checkout-total-value')
+    );
+
+    expect(totalValue).toHaveTextContent('R$ 30');
     expect(cartItems.length).toBe(2);
 
     const removeFirstItemButton = await waitFor(() =>
       screen.getByTestId('remove-0-item-from-cart')
     );
-    userEvent.click(removeFirstItemButton);
+    await userEvent.click(removeFirstItemButton);
 
-    expect(cartItems.length).toBe(1);
+    await waitFor(() => {
+      const updatedCartItems = screen.getAllByTestId('cart-item');
+      expect(updatedCartItems.length).toBe(1);
+    });
+
     expect(removeFirstItemButton).not.toBeInTheDocument();
   });
 
@@ -52,14 +63,15 @@ describe('Assertions on initial page load', () => {
     const addToCartButtons = await waitFor(() =>
       screen.getAllByTestId('add-to-cart')
     );
+
+    await userEvent.click(addToCartButtons[0]);
+    await userEvent.click(addToCartButtons[1]);
+
+    await userEvent.click(cartButton);
+
     const totalValue = await waitFor(() =>
       screen.getByTestId('checkout-total-value')
     );
-
-    userEvent.click(addToCartButtons[0]);
-    userEvent.click(addToCartButtons[1]);
-
-    userEvent.click(cartButton);
 
     expect(totalValue).toHaveTextContent('R$ 30');
 
@@ -69,11 +81,11 @@ describe('Assertions on initial page load', () => {
     const decraseQuantityButton = await waitFor(() =>
       screen.getByTestId('decrease-0-item-quantity')
     );
-    userEvent.click(increaseQuantityButton);
+    await userEvent.click(increaseQuantityButton);
 
     expect(totalValue).toHaveTextContent('R$ 40');
 
-    userEvent.click(decraseQuantityButton);
+    await userEvent.click(decraseQuantityButton);
 
     expect(totalValue).toHaveTextContent('R$ 30');
   });
