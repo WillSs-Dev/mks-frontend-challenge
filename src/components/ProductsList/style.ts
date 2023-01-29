@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { IAddToCartButtonProps, ICardProps } from '../../interfaces/props';
 
 const Container = styled.main`
-  min-height: 50vh;
+  min-height: 80vh;
   margin: 4.5% 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
