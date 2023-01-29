@@ -1,7 +1,7 @@
 import IProduct from '../interfaces/product';
 
 export const baseUrl =
-  'https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=10&sortBy=name&orderBy=DESC';
+  'https://mks-challenge-api-frontend.herokuapp.com/api/v1/products?page=1&rows=10&sortBy=id&orderBy=DESC';
 
 const getProducts = async () => {
   const response = await fetch(baseUrl);
