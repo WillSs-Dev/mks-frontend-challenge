@@ -7,5 +7,5 @@ export default interface ICurrencyResponse {
     separator: string;
     symbol: string;
   };
-  value: string | number;
+  value: number;
 }

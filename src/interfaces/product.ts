@@ -5,7 +5,7 @@ export default interface IProduct {
   description: string;
   photo: string;
   price: string | number;
-  quantity?: number;
+  quantity: number;
   createdAt: string;
   updatedAt: string;
 }

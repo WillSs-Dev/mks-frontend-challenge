@@ -1,6 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectCartItems } from '../../store/slices/cart.slice';
+import IProduct from '../../interfaces/product';
+import {
+  decreaseItemQuantity,
+  increaseItemQuantity,
+  removeFromCart,
+  selectCartItems,
+  selectCheckoutValue,
+} from '../../store/slices/cart.slice';
 import {
   selectCartSidebarState,
   closeCart,
@@ -12,11 +19,24 @@ const CartSidebar = () => {
   const dispatch = useDispatch();
   const showCart = useSelector(selectCartSidebarState);
   const cartProducts = useSelector(selectCartItems);
+  const checkoutValue = useSelector(selectCheckoutValue);
 
   const closeCartView = () => {
     dispatch(closeCart());
   };
 
+  const removeItemFromCart = (item: IProduct) => {
+    dispatch(removeFromCart(item));
+  };
+
+  const increase = (item: IProduct) => {
+    dispatch(increaseItemQuantity(item));
+  };
+
+  const decrease = (item: IProduct) => {
+    dispatch(decreaseItemQuantity(item));
+  };
+  
   return (
     <Container show={showCart} data-testid='cart-sidebar'>
       <div>
@@ -33,16 +53,36 @@ const CartSidebar = () => {
         {cartProducts.length ? (
           cartProducts.map((product, i) => (
             <div key={product.id} data-testid='cart-item'>
-              <button data-testid={`remove-${i}-item-from-cart`}>X</button>
+              <button
+                data-testid={`remove-${i}-item-from-cart`}
+                onClick={() => removeItemFromCart(product)}>
+                X
+              </button>
               <img src={product.photo} alt={product.name} />
               <div>
                 <span>{product.name}</span>
                 <ItemQuantity>
                   <span>Qtd:</span>
                   <div>
-                    <button data-testid={`decrease-${i}-item-quantity`}>-</button>
-                      <span data-testid={`${i}-item-quantity`}>{product.quantity}</span>
-                    <button data-testid={`increase-${i}-item-quantity`}>+</button>
+                    <button
+                      data-testid={`decrease-${i}-item-quantity`}
+                      disabled={product.quantity === 1}
+                      onClick={() => {
+                        decrease(product);
+                      }}>
+                      -
+                    </button>
+                    <span data-testid={`${i}-item-quantity`}>
+                      {product.quantity}
+                    </span>
+                    <button
+                      data-testid={`increase-${i}-item-quantity`}
+                      onClick={() => {
+                        increase(product)
+                      }}
+                      >
+                      +
+                    </button>
                   </div>
                 </ItemQuantity>
                 <span>{`R$ ${product.price}`}</span>
@@ -55,8 +95,8 @@ const CartSidebar = () => {
       </CartItems>
       <div>
         <div data-testid='checkout-total-value'>
-          <span>Total</span>
-          <span>{`R$ 0`}</span>
+          <span>Total:</span>
+          <span>{`R$ ${checkoutValue}`}</span>
         </div>
         <button>Finalizar Compra</button>
       </div>

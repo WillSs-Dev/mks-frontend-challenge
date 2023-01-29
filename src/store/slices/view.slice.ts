@@ -5,7 +5,7 @@ import { RootState } from '..';
 import { IViewSliceState } from '../../interfaces/state';
 
 const initialState: IViewSliceState = {
-  isCartOpen: true,
+  isCartOpen: false,
 }
 
 export const viewSlice = createSlice({

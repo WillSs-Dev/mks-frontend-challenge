@@ -2,7 +2,7 @@ import currency from 'currency.js';
 
 import ICurrencyResponse from '../interfaces/currency';
 
-const convertCurrencyToNumber = (stringValue: string) => {
+const convertCurrencyToNumber = (stringValue: string): number => {
                                           // lib sem tipagem 🤷
   const { value } = currency(stringValue) as unknown as ICurrencyResponse;
   return value;
