@@ -114,7 +114,7 @@ export const CartItems = styled.div`
     box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     width: 85%;
-    height: 95px;
+    min-height: 95px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -137,7 +137,7 @@ export const CartItems = styled.div`
     }
 
     > img {
-      max-height: 80%;
+      width: 15%;
     }
 
     > div {
@@ -153,6 +153,7 @@ export const CartItems = styled.div`
         color: #2c2c2c;
         max-width: 113px;
         max-height: 90%;
+        margin-left: 5px;
       }
 
       > :last-child {
@@ -166,6 +167,14 @@ export const CartItems = styled.div`
 `;
 
 export const ItemQuantity = styled.div`
+  position: absolute;
+  top: 20%;
+  right: 30%;
+
+  @media(max-width: 1024px) {
+    scale: 1.2;
+  }
+
   > span {
     font-family: 'Montserrat';
     font-weight: 400;
