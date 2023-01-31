@@ -109,6 +109,7 @@ const CartSidebar = () => {
           <span>{totalValue}</span>
         </div>
         <button
+          data-testid='finish-purchase-button'
           disabled={isPurchaseFinished}
           onClick={() => dispatch(finishPurchase())}>
           {isPurchaseFinished ? 'Compra finalizada!' : 'Finalizar Compra'}

@@ -40,7 +40,7 @@ describe('Products card list interaction', () => {
       screen.getByTestId('checkout-total-value')
     );
 
-    expect(totalValue).toHaveTextContent('R$ 30');
+    expect(totalValue).toHaveTextContent('Total:R$30.00');
     expect(cartItems.length).toBe(2);
 
     const removeFirstItemButton = await waitFor(() =>
@@ -73,7 +73,7 @@ describe('Products card list interaction', () => {
       screen.getByTestId('checkout-total-value')
     );
 
-    expect(totalValue).toHaveTextContent('R$ 30');
+    expect(totalValue).toHaveTextContent('Total:R$30.00');
 
     const increaseQuantityButton = await waitFor(() =>
       screen.getByTestId('increase-0-item-quantity')
@@ -83,10 +83,32 @@ describe('Products card list interaction', () => {
     );
     await userEvent.click(increaseQuantityButton);
 
-    expect(totalValue).toHaveTextContent('R$ 40');
+    expect(totalValue).toHaveTextContent('Total:R$40.00');
 
     await userEvent.click(decraseQuantityButton);
 
-    expect(totalValue).toHaveTextContent('R$ 30');
+    expect(totalValue).toHaveTextContent('Total:R$30.00');
+  });
+
+  it('Finishes the purchase', async () => {
+    renderWithState(App);
+
+    const addToCartButtons = await waitFor(() =>
+      screen.getAllByTestId('add-to-cart')
+    );
+
+    await userEvent.click(addToCartButtons[0]);
+    await userEvent.click(addToCartButtons[1]);
+
+    const cartButton = await waitFor(() => screen.getByTestId('cart-button'));
+    await userEvent.click(cartButton);
+
+    const finishPurchaseButton = await waitFor(() =>
+      screen.getByTestId('finish-purchase-button')
+    );
+
+    await userEvent.click(finishPurchaseButton);
+
+    expect(finishPurchaseButton).toHaveTextContent('Compra finalizada!');
   });
 });
