@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import IProduct from '../../interfaces/product';
 import { IProductsListProps } from '../../interfaces/props';
 import { addToCart, selectCartItems } from '../../store/slices/cart.slice';
-import { convertCurrencyToNumber } from '../../utils/convertCurrency';
+import { convertCurrencyToNumber, convertStringToCurrency } from '../../utils/convertCurrency';
 import 'react-loading-skeleton/dist/skeleton.css';
 import AddToCartButton from '../AddToCartButton';
 
@@ -46,9 +46,9 @@ const ProductsList = (props: IProductsListProps) => {
           {product.name ? (
             <>
               <div>
-                <span>{product.name || <Skeleton />}</span>
+                <span>{product.name}</span>
                 <div>
-                  <span>{`R$${product.price}`}</span>
+                  <span>{convertStringToCurrency(product.price as string)}</span>
                 </div>
               </div>
               <p>{`${product.description.substring(0, 100)}...`}</p>

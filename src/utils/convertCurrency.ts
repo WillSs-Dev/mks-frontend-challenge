@@ -18,4 +18,14 @@ const convertNumberToCurrency = (numberValue: number): string => {
   return value;
 };
 
-export { convertCurrencyToNumber, convertNumberToCurrency };
+const convertStringToCurrency = (stringValue: string): string => {
+  const value = currency(stringValue, {
+    symbol: 'R$',
+    precision: 2,
+    separator: '',
+    decimal: '.',
+  }).format() as string;
+  return value;
+};
+
+export { convertCurrencyToNumber, convertNumberToCurrency, convertStringToCurrency };
