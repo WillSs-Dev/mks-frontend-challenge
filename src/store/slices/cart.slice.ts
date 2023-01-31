@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '..';
 
 import { ICartSliceState } from '../../interfaces/state';
-import convertCurrencyToNumber from '../../utils/convertCurrency';
+import { convertCurrencyToNumber } from '../../utils/convertCurrency';
 
 const initialState: ICartSliceState = {
   checkoutValue: 0,

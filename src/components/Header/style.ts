@@ -53,7 +53,8 @@ const HomeIcon = styled.div`
 
 const CartButton = styled.button<ICartButtonProps>`
   display: flex;
-  width: 90px;
+  width: fit-content;
+  padding: 0 10px;
   height: 45px;
   margin-right: 88px;
   border-radius: 8px;
@@ -79,6 +80,7 @@ const CartButton = styled.button<ICartButtonProps>`
 
   > img {
     width: 18px;
+    margin-right: 5px;
   }
 
   > span {

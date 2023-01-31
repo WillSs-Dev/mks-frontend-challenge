@@ -1,4 +1,4 @@
-export default interface ICurrencyResponse {
+export interface INumberCurrencyResponse {
   intValue: number;
   p: number;
   s: {

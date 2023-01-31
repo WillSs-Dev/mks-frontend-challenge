@@ -1,11 +1,20 @@
 import currency from 'currency.js';
 
-import ICurrencyResponse from '../interfaces/currency';
+import { INumberCurrencyResponse } from '../interfaces/currency';
 
 const convertCurrencyToNumber = (stringValue: string): number => {
-                                          // lib sem tipagem 🤷
-  const { value } = currency(stringValue) as unknown as ICurrencyResponse;
+  // lib sem tipagem 🤷
+  const { value } = currency(stringValue) as unknown as INumberCurrencyResponse;
   return value;
-}
+};
 
-export default convertCurrencyToNumber;
+const convertNumberToCurrency = (numberValue: number): string => {
+  const value = currency(numberValue, {
+    symbol: 'R$',
+    precision: 0,
+    separator: '',
+  }).format() as string;
+  return value;
+};
+
+export { convertCurrencyToNumber, convertNumberToCurrency };

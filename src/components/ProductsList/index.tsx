@@ -5,7 +5,7 @@ import shoppingBag from '../../images/shopping-bag.svg';
 import IProduct from '../../interfaces/product';
 import { IProductsListProps } from '../../interfaces/props';
 import { addToCart, selectCartItems } from '../../store/slices/cart.slice';
-import convertCurrencyToNumber from '../../utils/convertCurrency';
+import { convertCurrencyToNumber } from '../../utils/convertCurrency';
 
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Container, Card, AddToCartButton } from './style';
@@ -41,7 +41,7 @@ const ProductsList = (props: IProductsListProps) => {
               onClick={() => addProductToCart(product)}
             />
           ) : (
-            <Skeleton height={138} width={195} baseColor='#2c2c2c'/>
+            <Skeleton height={138} width={195} baseColor='#2c2c2c' />
           )}
           {product.name ? (
             <>
@@ -54,7 +54,7 @@ const ProductsList = (props: IProductsListProps) => {
               <p>{`${product.description.substring(0, 100)}...`}</p>
             </>
           ) : (
-            <Skeleton count={3} height={15} width={195}/>
+            <Skeleton count={3} height={15} width={195} />
           )}
           <AddToCartButton
             data-testid='add-to-cart'
