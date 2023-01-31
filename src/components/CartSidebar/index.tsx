@@ -56,7 +56,7 @@ const CartSidebar = () => {
           <br />
           de compras
         </h2>
-        <button onClick={closeCartView} data-testid='close-button'>
+        <button onClick={closeCartView} data-testid='close-cart-button'>
           X
         </button>
       </div>

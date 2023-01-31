@@ -51,7 +51,7 @@ describe('Assertions on initial page load', () => {
       expect(cartSidebar).toHaveStyle('transform: translate(0)')
     );
 
-    const closeButton = await waitFor(() => screen.getByTestId('close-button'));
+    const closeButton = await waitFor(() => screen.getByTestId('close-cart-button'));
 
     // CLOSE
     await userEvent.click(closeButton);
