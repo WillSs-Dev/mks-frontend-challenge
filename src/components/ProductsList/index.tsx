@@ -42,7 +42,11 @@ const ProductsList = (props: IProductsListProps) => {
             <Card key={i} data-testid='product-card'>
               <Skeleton height={138} width={195} baseColor='#bdbcbc' />
               <Skeleton count={3} height={15} width={195} />
-              <Skeleton baseColor='#1a4688' height='31.91px' width='217.56px' borderRadius='0px 0px 8px 8px'></Skeleton>
+              <Skeleton
+                baseColor='#1a4688'
+                height='31.91px'
+                width='217.56px'
+                borderRadius='0px 0px 8px 8px'></Skeleton>
             </Card>
           ))
         : products.map((product, i) => (
