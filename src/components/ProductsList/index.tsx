@@ -1,14 +1,14 @@
 import Skeleton from 'react-loading-skeleton';
 import { useDispatch, useSelector } from 'react-redux';
 
-import shoppingBag from '../../images/shopping-bag.svg';
 import IProduct from '../../interfaces/product';
 import { IProductsListProps } from '../../interfaces/props';
 import { addToCart, selectCartItems } from '../../store/slices/cart.slice';
 import { convertCurrencyToNumber } from '../../utils/convertCurrency';
-
 import 'react-loading-skeleton/dist/skeleton.css';
-import { Container, Card, AddToCartButton } from './style';
+import AddToCartButton from '../AddToCartButton';
+
+import { Container, Card } from './style';
 
 const ProductsList = (props: IProductsListProps) => {
   const { products } = props;
@@ -56,15 +56,7 @@ const ProductsList = (props: IProductsListProps) => {
           ) : (
             <Skeleton count={3} height={15} width={195} />
           )}
-          <AddToCartButton
-            data-testid='add-to-cart'
-            onClick={() => addProductToCart(product)}>
-            <img
-              src={shoppingBag}
-              alt={`Adicionar ${product.name} ao carrinho`}
-            />
-            COMPRAR
-          </AddToCartButton>
+          <AddToCartButton product={product} />
         </Card>
       ))}
     </Container>

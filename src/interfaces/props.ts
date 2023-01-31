@@ -14,7 +14,7 @@ export interface ICartButtonProps {
 }
 
 export interface IAddToCartButtonProps {
-  'data-testid': string;
+  product: IProduct;
 }
 
 export interface ICardProps {

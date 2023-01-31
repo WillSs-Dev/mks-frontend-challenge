@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { IAddToCartButtonProps, ICardProps } from '../../interfaces/props';
+import { ICardProps } from '../../interfaces/props';
 
 const Container = styled.main`
   min-height: 80vh;
@@ -81,25 +81,4 @@ const Card = styled.div<ICardProps>`
 
 `;
 
-const AddToCartButton = styled.button<IAddToCartButtonProps>`
-    width: 100%;
-    background: #0f52ba;
-    border-radius: 0px 0px 8px 8px;
-    height: 31.91px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    color: #fff;
-    gap: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-
-    :hover { 
-      opacity: 0.9;
-      scale: 1.01;
-    }
-  `;
-
-export { Container, Card, AddToCartButton };
+export { Container, Card };
