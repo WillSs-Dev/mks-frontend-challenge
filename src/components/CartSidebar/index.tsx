@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import IProduct from '../../interfaces/product';
@@ -12,14 +13,21 @@ import {
   selectCartSidebarState,
   closeCart,
 } from '../../store/slices/view.slice';
+import { convertNumberToCurrency } from '../../utils/convertCurrency';
 
 import { CartItems, Container, ItemQuantity } from './style';
 
 const CartSidebar = () => {
+  const [totalValue, setTotalValue] = useState('R$ 0,00');
+
   const dispatch = useDispatch();
   const showCart = useSelector(selectCartSidebarState);
   const cartProducts = useSelector(selectCartItems);
   const checkoutValue = useSelector(selectCheckoutValue);
+
+  useEffect(() => {
+    setTotalValue(convertNumberToCurrency(checkoutValue));
+  }, [cartProducts, checkoutValue])
 
   const closeCartView = () => {
     dispatch(closeCart());
@@ -96,7 +104,7 @@ const CartSidebar = () => {
       <div>
         <div data-testid='checkout-total-value'>
           <span>Total:</span>
-          <span>{`R$ ${checkoutValue}`}</span>
+          <span>{totalValue}</span>
         </div>
         <button>Finalizar Compra</button>
       </div>

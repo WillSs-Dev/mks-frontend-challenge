@@ -11,8 +11,9 @@ const convertCurrencyToNumber = (stringValue: string): number => {
 const convertNumberToCurrency = (numberValue: number): string => {
   const value = currency(numberValue, {
     symbol: 'R$',
-    precision: 0,
+    precision: 2,
     separator: '',
+    decimal: '.',
   }).format() as string;
   return value;
 };
