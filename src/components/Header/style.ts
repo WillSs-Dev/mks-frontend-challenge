@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { ICartButtonProps } from '../../interfaces/props';
 
-const HeaderContainer = styled.div`
+const Container = styled.div`
   width: 100%;
   height: 100px;
   color: #ffffff;
@@ -53,8 +53,7 @@ const HomeIcon = styled.div`
 
 const CartButton = styled.button<ICartButtonProps>`
   display: flex;
-  width: fit-content;
-  padding: 0 10px;
+  width: 90px;
   height: 45px;
   margin-right: 88px;
   border-radius: 8px;
@@ -80,7 +79,6 @@ const CartButton = styled.button<ICartButtonProps>`
 
   > img {
     width: 18px;
-    margin-right: 5px;
   }
 
   > span {
@@ -93,4 +91,4 @@ const CartButton = styled.button<ICartButtonProps>`
   }
 `;
 
-export { HeaderContainer, HomeIcon, CartButton };
+export { Container, HomeIcon, CartButton };
