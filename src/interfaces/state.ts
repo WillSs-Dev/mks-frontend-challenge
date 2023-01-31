@@ -7,4 +7,5 @@ export interface ICartSliceState {
 
 export interface IViewSliceState {
   isCartOpen: boolean;
+  isPurchaseFinished: boolean;
 }

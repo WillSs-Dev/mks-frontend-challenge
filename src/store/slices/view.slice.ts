@@ -6,6 +6,7 @@ import { IViewSliceState } from '../../interfaces/state';
 
 const initialState: IViewSliceState = {
   isCartOpen: false,
+  isPurchaseFinished: false,
 }
 
 export const viewSlice = createSlice({
@@ -20,11 +21,16 @@ export const viewSlice = createSlice({
     closeCart: (state) => {
       state.value.isCartOpen = false;
     },
+    finishPurchase: (state) => {
+      state.value.isPurchaseFinished = true;
+    },
   }
 });
 
 export const selectCartSidebarState = (state: RootState) => state.view.value.isCartOpen;
 
-export const { openCart, closeCart } = viewSlice.actions;
+export const selectPurchaseFinishedState = (state: RootState) => state.view.value.isPurchaseFinished;
+
+export const { openCart, closeCart, finishPurchase } = viewSlice.actions;
 
 export default viewSlice.reducer;

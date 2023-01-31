@@ -12,6 +12,8 @@ import {
 import {
   selectCartSidebarState,
   closeCart,
+  selectPurchaseFinishedState,
+  finishPurchase,
 } from '../../store/slices/view.slice';
 import { convertNumberToCurrency } from '../../utils/convertCurrency';
 
@@ -24,10 +26,11 @@ const CartSidebar = () => {
   const showCart = useSelector(selectCartSidebarState);
   const cartProducts = useSelector(selectCartItems);
   const checkoutValue = useSelector(selectCheckoutValue);
+  const isPurchaseFinished = useSelector(selectPurchaseFinishedState);
 
   useEffect(() => {
     setTotalValue(convertNumberToCurrency(checkoutValue));
-  }, [cartProducts, checkoutValue])
+  }, [cartProducts, checkoutValue]);
 
   const closeCartView = () => {
     dispatch(closeCart());
@@ -44,7 +47,7 @@ const CartSidebar = () => {
   const decrease = (item: IProduct) => {
     dispatch(decreaseItemQuantity(item));
   };
-  
+
   return (
     <Container show={showCart} data-testid='cart-sidebar'>
       <div>
@@ -86,9 +89,8 @@ const CartSidebar = () => {
                     <button
                       data-testid={`increase-${i}-item-quantity`}
                       onClick={() => {
-                        increase(product)
-                      }}
-                      >
+                        increase(product);
+                      }}>
                       +
                     </button>
                   </div>
@@ -106,7 +108,11 @@ const CartSidebar = () => {
           <span>Total:</span>
           <span>{totalValue}</span>
         </div>
-        <button>Finalizar Compra</button>
+        <button
+          disabled={isPurchaseFinished}
+          onClick={() => dispatch(finishPurchase())}>
+          {isPurchaseFinished ? 'Compra finalizada!' : 'Finalizar Compra'}
+        </button>
       </div>
     </Container>
   );
